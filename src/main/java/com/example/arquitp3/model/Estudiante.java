@@ -1,5 +1,6 @@
 package com.example.arquitp3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -27,7 +28,7 @@ public class Estudiante {
     @Column
     private String ciudad_residencia;
 
-
+    @JsonIgnoreProperties(value = { "estudiante_en_curso" }, allowSetters = true)
     @OneToMany(mappedBy = "estudiante_en_curso")
     private List<Inscripcion> carreras;
  
@@ -44,29 +45,7 @@ public class Estudiante {
         this.genero = genero;
         this.ciudad_residencia = ciudad_residencia;
     }
-    public long getLibretaUniversitaria() {
-        return libreta_universitaria;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public String getCiudadResidencia() {
-        return ciudad_residencia;
-    }
 }
 
 
