@@ -8,6 +8,7 @@ public class ArquiTp3Application {
 
     public static void main(String[] args) {
         SpringApplication.run(ArquiTp3Application.class, args);
+
     }
 
 }

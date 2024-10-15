@@ -1,5 +1,6 @@
 package com.example.arquitp3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class Carrera {
     @Column
     private int anios;
 
+    @JsonIgnoreProperties(value = { "carrera_cursada" }, allowSetters = true)
     @OneToMany(mappedBy = "carrera_cursada")
     private List<Inscripcion> estudiantes;
 

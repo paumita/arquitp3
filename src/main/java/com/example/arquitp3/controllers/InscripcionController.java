@@ -7,6 +7,8 @@ import com.example.arquitp3.services.InscripcionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/inscripcion")
 public class InscripcionController {
@@ -25,9 +27,9 @@ public class InscripcionController {
         return service.getAll();
     }
 
-    @GetMapping("/carreraInscriptos")
+    /*@GetMapping("/carreraInscriptos")
     public Iterable<CarreraDto> getCarreras() {
         return this.service.getCarrerasConInscriptos();
     }
-
+*/
 }

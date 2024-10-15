@@ -1,5 +1,6 @@
 package com.example.arquitp3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,11 +13,13 @@ public class Inscripcion {
     @EmbeddedId
     private CarrerasCursadasPk pk_carreras_cursadas;
 
+    @JsonIgnoreProperties(value = { "estudiantes" }, allowSetters = true)
     @ManyToOne
     @MapsId("id_carrera") // PK de la entidad Carrera
     @JoinColumn(name = "id_carrera", referencedColumnName = "id_carrera", insertable = false, updatable = false)
     private Carrera carrera_cursada;
 
+    @JsonIgnoreProperties(value = { "carreras" }, allowSetters = true)
     @ManyToOne
     @MapsId("libreta_universitaria") // PK de la entidad Estudiante
     @JoinColumn(name = "id_estudiante", referencedColumnName = "libreta_universitaria", insertable = false, updatable = false)
@@ -24,6 +27,8 @@ public class Inscripcion {
 
     @Column
     private Date fecha_inscripcion;
+    @Column
+    private Date fecha_graduacion;
 
     public Inscripcion(CarrerasCursadasPk pk_carreras_cursadas,
                        Carrera carrera_cursada, Estudiante estudiante_en_curso) {

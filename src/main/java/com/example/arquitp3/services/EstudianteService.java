@@ -21,25 +21,21 @@ public class EstudianteService {
         repository.save(estudiante);
     }
 
-    public Iterable<Estudiante> getAll() {
-        return repository.findAll();
+    public List<EstudianteDto> getAll() {
+        return repository.findAllDto();
     }
 
-    public Estudiante getByLibretaUniversitaria(long LU) {
+    public EstudianteDto getByLibretaUniversitaria(long LU) {
         return repository.findByLibretaUniversitaria(LU);
     }
 
-    public Iterable<Estudiante> getAllByGenero(String genero) {
+    public List<EstudianteDto> getAllByGenero(String genero) {
         return repository.findAllByGenero(genero);
     }
 
-    public Iterable<Estudiante> getOrderByEdad() {
+    public List<EstudianteDto> getOrderByEdad() {
         return repository.findAllOrderByEdad();
     }
-
-    /*public Iterable<EstudianteDto> getAllByCarreraFilterByResidencia(String carrera, String residencia) {
-        return repository.findAllByCarreraFilterByResidencia(carrera, residencia);
-    }*/
 
     public List<EstudianteDto> getAllByCarreraFilterByResidencia(String carrera, String residencia) {
         List<EstudianteDto> consulta = repository.findAllByCarreraFilterByResidencia(carrera, residencia);

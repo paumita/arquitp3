@@ -6,13 +6,13 @@ public class CarreraDto {
 
     private long id_carrera;
     private String nombre;
-    private int Anios;
-    private long cantidadInscriptos;
+    private int anios;
+    private long cantidad_inscriptos;
 
     public CarreraDto(long id_carrera, String nombre, int anios, long cantidadInscriptos) {
         this.id_carrera = id_carrera;
         this.nombre = nombre;
-        this.Anios = anios;
-        this.cantidadInscriptos = cantidadInscriptos;
+        this.anios = anios;
+        this.cantidad_inscriptos = cantidadInscriptos;
     }
 }

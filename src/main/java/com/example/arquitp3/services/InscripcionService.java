@@ -1,6 +1,8 @@
 package com.example.arquitp3.services;
 
 import com.example.arquitp3.dtos.CarreraDto;
+import com.example.arquitp3.dtos.EstudianteDto;
+import com.example.arquitp3.dtos.InscripcionDto;
 import com.example.arquitp3.model.Carrera;
 import com.example.arquitp3.model.CarrerasCursadasPk;
 import com.example.arquitp3.model.Estudiante;
@@ -10,6 +12,8 @@ import com.example.arquitp3.repositories.EstudianteRepository;
 import com.example.arquitp3.repositories.InscripcionRepository;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class InscripcionService {
@@ -37,11 +41,11 @@ public class InscripcionService {
         }
     }
 
-    public Iterable<Inscripcion> getAll() {
+    public List<Inscripcion> getAll() {
         return repository.findAll();
     }
 
-    public Iterable<CarreraDto> getCarrerasConInscriptos(){
+    public List<Carrera> getCarrerasConInscriptos(){
         return this.repository.findCarrerasConInscriptosOrdenadasPorCantidad();
     }
 

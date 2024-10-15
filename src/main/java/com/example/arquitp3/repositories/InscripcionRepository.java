@@ -1,6 +1,8 @@
 package com.example.arquitp3.repositories;
 
 import com.example.arquitp3.dtos.CarreraDto;
+import com.example.arquitp3.dtos.InscripcionDto;
+import com.example.arquitp3.model.Carrera;
 import com.example.arquitp3.model.Inscripcion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +16,5 @@ public interface InscripcionRepository extends JpaRepository<Inscripcion, Long> 
             "FROM Inscripcion i JOIN i.carrera_cursada c " +
             "GROUP BY c.id_carrera, c.nombre, c.anios " +
             "ORDER BY COUNT(i) DESC")
-    List<CarreraDto> findCarrerasConInscriptosOrdenadasPorCantidad();
+    List<Carrera> findCarrerasConInscriptosOrdenadasPorCantidad();
 }

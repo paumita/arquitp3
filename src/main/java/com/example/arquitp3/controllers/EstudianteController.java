@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.arquitp3.services.EstudianteService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/estudiantes")
 public class EstudianteController {
@@ -19,22 +21,22 @@ public class EstudianteController {
     }
 
     @GetMapping("/")
-    public Iterable<Estudiante> getEstudiantes() {
+    public List<EstudianteDto> getEstudiantes() {
         return service.getAll();
     }
 
     @GetMapping("/orderByEdad")
-    public Iterable<Estudiante> getEstudiantesOrderByEdad() {
+    public  List<EstudianteDto> getEstudiantesOrderByEdad() {
         return service.getOrderByEdad();
     }
 
     @GetMapping("/byLU/{LU}")
-    public Estudiante getByLibretaUniversitaria(@PathVariable long LU) {
+    public EstudianteDto getByLibretaUniversitaria(@PathVariable long LU) {
         return service.getByLibretaUniversitaria(LU);
     }
 
     @GetMapping("/byGenero/{genero}")
-    public Iterable<Estudiante> getByGenero(@PathVariable String genero) {
+    public  List<EstudianteDto> getByGenero(@PathVariable String genero) {
         return service.getAllByGenero(genero);
     }
 
@@ -44,7 +46,7 @@ public class EstudianteController {
     }
 
     @GetMapping("/byCarrera/{carrera}/filterByCiudadResidencia/{ciudad_residencia}")
-    public Iterable<EstudianteDto> getAllByCarreraFilterByResidencia(@PathVariable String carrera, @PathVariable String ciudad_residencia) {
+    public List<EstudianteDto> getAllByCarreraFilterByResidencia(@PathVariable String carrera, @PathVariable String ciudad_residencia) {
         return service.getAllByCarreraFilterByResidencia(carrera, ciudad_residencia);
     }
 
