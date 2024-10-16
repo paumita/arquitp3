@@ -1,4 +1,5 @@
 package com.example.arquitp3.services;
+
 import com.example.arquitp3.dtos.EstudianteDto;
 import com.example.arquitp3.model.Estudiante;
 import com.example.arquitp3.repositories.EstudianteRepository;
@@ -40,6 +41,10 @@ public class EstudianteService {
     public List<EstudianteDto> getAllByCarreraFilterByResidencia(String carrera, String residencia) {
         List<EstudianteDto> consulta = repository.findAllByCarreraFilterByResidencia(carrera, residencia);
         return consulta;
+    }
+
+    public void deleteAll() {
+        repository.deleteAll();
     }
 }
 

@@ -40,9 +40,15 @@ public class EstudianteController {
         return service.getAllByGenero(genero);
     }
 
-    @PostMapping(string)
+    @PostMapping("/")
     public void addEstudiante(@RequestBody Estudiante estudiante) {
         service.post(estudiante);
+    }
+    @PostMapping("/Many")
+    public void addEstudiante(@RequestBody List<Estudiante> estudiantes) {
+        for (Estudiante estudiante : estudiantes) {
+        service.post(estudiante);
+        }
     }
 
     @GetMapping("/byCarrera/{carrera}/filterByCiudadResidencia/{ciudad_residencia}")
@@ -50,5 +56,8 @@ public class EstudianteController {
         return service.getAllByCarreraFilterByResidencia(carrera, ciudad_residencia);
     }
 
-
+    @DeleteMapping("/")
+    public void deleteAll() {
+        service.deleteAll();
+    }
 }

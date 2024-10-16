@@ -28,10 +28,10 @@ public class Estudiante {
     @Column
     private String ciudad_residencia;
 
-    @JsonIgnoreProperties(value = { "estudiante_en_curso" }, allowSetters = true)
+    @JsonIgnoreProperties(value = {"estudiante_en_curso"}, allowSetters = true)
     @OneToMany(mappedBy = "estudiante_en_curso")
     private List<Inscripcion> carreras;
- 
+
 
     public Estudiante() {
 

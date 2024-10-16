@@ -22,12 +22,17 @@ public class CarreraService {
     public List<CarreraDto> getAll() {
         return repository.findAllDto();
     }
-    public  List<CarreraDto> getAllCarrerasConInscriptosOrderByCantInscriptos(){
+
+    public List<CarreraDto> getAllCarrerasConInscriptosOrderByCantInscriptos() {
         return this.repository.findAllDtoConInscriptosOrderByCantInscriptos();
     }
 
-    public List<CarreraReporteDto> getReporteCarreras(){
-      return repository.getReporte();
+    public List<CarreraReporteDto> getReporteCarreras() {
+        return repository.getReporte();
+    }
+
+    public void deleteAll() {
+        repository.deleteAll();
     }
 
 }

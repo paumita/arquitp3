@@ -17,7 +17,7 @@ public class InscripcionController {
     private InscripcionService service;
 
 
-    @PostMapping("/inscribirEstudiante/{LU}/{idCarrera}")
+    @PostMapping("/libretaUniversitaria/{LU}/idCarrera/{idCarrera}")
     public void add(@PathVariable Long LU, @PathVariable Long idCarrera){
         this.service.inscribirEstudiante(LU, idCarrera);
     }
@@ -27,9 +27,8 @@ public class InscripcionController {
         return service.getAll();
     }
 
-    /*@GetMapping("/carreraInscriptos")
-    public Iterable<CarreraDto> getCarreras() {
-        return this.service.getCarrerasConInscriptos();
+    @DeleteMapping("/")
+    public void deleteAll() {
+        service.deleteAll();
     }
-*/
 }

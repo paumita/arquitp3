@@ -23,11 +23,11 @@ public interface CarreraRepository extends JpaRepository<Carrera, Long> {
     @Query("SELECT new com.example.arquitp3.dtos.CarreraReporteDto(" +
             "c.id_carrera, " +
             "c.nombre, " +
-            "COUNT(i.fecha_inscripcion), " +
+            "COUNT(i.fecha_inscripcion)," +
             "COUNT(i.fecha_graduacion)," +
-            "YEAR(i.fecha_inscripcion))"+
+            "YEAR(i.fecha_inscripcion))" +
             "FROM Carrera c " +
-            "LEFT JOIN Inscripcion i ON i.carrera_cursada.id_carrera = c.id_carrera " +
+            "JOIN Inscripcion i ON i.carrera_cursada.id_carrera = c.id_carrera " +
             "GROUP BY c.id_carrera, c.nombre, YEAR(i.fecha_inscripcion) " +
             "ORDER BY c.nombre ASC, YEAR(i.fecha_inscripcion) ASC")
     public List<CarreraReporteDto> getReporte();

@@ -32,11 +32,11 @@ public class InscripcionService {
     }
 
     public void inscribirEstudiante(long LU, long idCarrera) {
-        if(estudianteRepository.existsById(LU) && carreraRepository.existsById(idCarrera)) {
+        if (estudianteRepository.existsById(LU) && carreraRepository.existsById(idCarrera)) {
             Carrera carrera = carreraRepository.findById(idCarrera).get();
             Estudiante estudiante = estudianteRepository.findById(LU).get();
-            CarrerasCursadasPk cc = new CarrerasCursadasPk(idCarrera,LU);
-            Inscripcion inscripcion = new Inscripcion(cc,carrera,estudiante);
+            CarrerasCursadasPk cc = new CarrerasCursadasPk(idCarrera, LU);
+            Inscripcion inscripcion = new Inscripcion(cc, carrera, estudiante);
             repository.save(inscripcion);
         }
     }
@@ -45,8 +45,11 @@ public class InscripcionService {
         return repository.findAll();
     }
 
-    public List<Carrera> getCarrerasConInscriptos(){
+    public List<Carrera> getCarrerasConInscriptos() {
         return this.repository.findCarrerasConInscriptosOrdenadasPorCantidad();
     }
 
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

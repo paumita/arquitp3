@@ -23,7 +23,7 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
 
     @Query("SELECT new com.example.arquitp3.dtos.EstudianteDto(e.libreta_universitaria, e.nombre, e.apellido, e.edad, e.genero, e.ciudad_residencia) " +
             "FROM Estudiante e WHERE e.genero = :genero")
-    List<EstudianteDto>findAllByGenero(String genero);
+    List<EstudianteDto> findAllByGenero(String genero);
 
     @Query("SELECT new com.example.arquitp3.dtos.EstudianteDto(e.libreta_universitaria, e.nombre, e.apellido, e.edad, e.genero, e.ciudad_residencia, cc.fecha_inscripcion) " +
             "FROM Estudiante e " +

@@ -39,4 +39,9 @@ public class CarreraController {
     public List<CarreraReporteDto> getReporteCarreras(){
         return service.getReporteCarreras();
     }
+
+    @DeleteMapping("/")
+    public void deleteAll() {
+        service.deleteAll();
+    }
 }
